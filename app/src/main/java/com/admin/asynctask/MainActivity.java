@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener btnGo1Listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            new Job1Task().execute();
+            new Job1Task().execute(); // 產生類別並呼叫execute()
         }
     };
     //btn_GO1 AsyncTask 傳入值與回傳值都是Void
@@ -94,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
     };
 
     //工作執行過程中需要回報秒數，設計Job3Task類別時的第二個參數應宣告為Integer
+    //doInBackground方法的參數使用的是Java 1.5開始提供的陣列參數語法，
+    // 在編譯時會轉換為陣列，（與AsyncTask的傳入值型態配合）若是字串時，params[0]即代表陣列的第一個字串值
     class Job3Task extends AsyncTask<Integer, Integer, Void>{
 
         @Override
@@ -124,6 +126,5 @@ public class MainActivity extends AppCompatActivity {
             text_Info.setText(String.valueOf(values[0]));
         }
     }
-
 
 }
